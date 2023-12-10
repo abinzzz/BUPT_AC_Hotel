@@ -1,0 +1,30 @@
+.title {
+    font-weight: bold;
+}
+
+.radio-box {
+    display: flex;
+    align-items: center;
+}
+
+.time-box {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+.form-control {
+    margin-top: 10px;
+}
+
+.line {
+    margin: 0 10px;
+}
+
+.btns {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

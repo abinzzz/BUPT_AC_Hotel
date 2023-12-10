@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Client-UI</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+
+    <!-- 添加内嵌JavaScript以实现实时时间功能 -->
+    <script>
+        setTimeout(function() {
+            location.reload();
+        }, 5000); // 5000毫秒，即5秒
+
+        function updateTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var day = now.getDate();
+            var weekday = now.getDay();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var weekdayCh = ["日", "一", "二", "三", "四", "五", "六"];
+
+            // 补零操作
+            month = month < 10 ? '0' + month : month;
+            day = day < 10 ? '0' + day : day;
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            // 显示时间
+            var timeStr = year + "年" + month + "月" + day + "日 星期" + weekdayCh[weekday] + " " + hours + ":" + minutes + ":" + seconds;
+            document.getElementById("time").textContent = timeStr;
+        }
+
+        // 当文档加载完成后，开始更新时间
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTime();
+            setInterval(updateTime, 2000); // 每秒更新时间
+        });
+
+
+
+
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="table" width="500">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div id="screen">
+                            <h2>空调控制面板</h2>
+                            <div id="time" style="margin-top: 20px;" class="text">年月日 星期 --:--:--</div>
+                            <div id="temperature_box" class="text">
+                                <span id="const_set">设置温度:</span>
+                                <span id="temperature">{{target_temp}}℃</span>
+                            </div>
+                            <p id="outdoor_tmp" class="text">室外温度：{{init_temp}}℃</p>
+                            <p id="wind_speed" class="text">风速：{{fan_speed}}</p>
+                            <p id="mode" class="text">模式：{{ "制热" }}</p>
+                            <div id="indoor_tmp" class="text">室内温度：{{current_temp}}℃</div>
+                            <div id="fee" class="text">费用：￥{{fee|floatformat:2}}</div>
+                            <div id="room_id" class="text">房间号：{{ room_id }}</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="controlsB" style="padding-top: 40px;">
+                        <form action="/power" method="get">
+                            <input id="btn_power" type="submit" value="开关" class="btn"></input>
+                        </form>
+                        <form action="/low" method="get">
+                            <input id="btn_low" type="submit" value="低速" class="btn">
+                        </form>
+                        <form action="/mid" method="get">
+                            <input id="btn_mid" type="submit" value="中速" class="btn">
+                        </form>
+                         <form action="/high" method="get">
+                            <input id="btn_high" type="submit" value="高速" class="btn">
+                        </form>
+                        <form action="/up" method="get">
+                            <input id="btn_up" type="submit" value="△" class="btn"></input>
+                        </form>
+                        <form action="/down" method="get">
+                            <input id="btn_down" type="submit" value="▽" class="btn"></input>
+                        </form>
+                        <form>
+                            <input id="btn_mode" type="submit" value="模式" class="btn"></input>
+                        </form>
+                        <form>
+                            <input id="btn_save" type="submit" value="保留" class="btn"></input>
+                        </form>
+
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

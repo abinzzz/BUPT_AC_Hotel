@@ -1,0 +1,28 @@
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.strong-title {
+    font-weight: bold;
+}
+
+.s-title {
+    font-weight: 600;
+}
+
+.box {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.box>.card {
+    margin: 10px 20px;
+}
+
+.box>.card>.card-header {
+    font-size: 20px;
+    font-weight: bold;
+}

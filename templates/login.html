@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+
+    <link rel="stylesheet" href="/static/css/login_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>欢 迎 来 到 波 普 特 大 酒 店！</h1>
+        <div class="centered-form">
+            <form id="loginForm" method="post" action="/login/">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="user" placeholder="用户名">
+                </div>
+                <div class="input-group">
+                    <input type="password" name="pwd" placeholder="密码">
+                </div>
+                <button type="submit">Start</button>
+                <span class="error">{{ error_msg }}</span>
+            </form>
+        </div>
+    </div>
+    <script src="/static/js/login_style.js"></script>
+</body>
+</html>

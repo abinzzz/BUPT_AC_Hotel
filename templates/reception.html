@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <title>Reception </title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Core stylesheets -->
+    <link rel="stylesheet" href="/static/css/custom.css">
+    <!-- <link rel="stylesheet" href="/static/css/form.css"> -->
+    <link rel="stylesheet" href="/static/css/reception.css">
+</head>
+
+<body>
+
+
+
+<!--====================================================
+                    PAGE CONTENT
+======================================================-->
+    <div class="page-content d-flex align-items-stretch">
+
+
+        <div class="content-inner form-cont">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!--***** BASIC FORM *****-->
+                    <div class="card form" id="form1">
+                        <div class="card-header">
+                            <h5>出示单据</h5>
+                        </div>
+                        <br>
+
+                            <div class="row">
+								<div class="col-md-1"></div>
+
+                                <div class="col-md-5">
+								<form action="/recp_submit/" method="get">
+                                    <div class="form-group">
+                                        <label class="title">单据类型</label>
+                                        <div class="radio-box">
+                                            <div class="radio-box">
+                                                <input type="radio" id="rdr" name="type" value="rdr" checked>
+                                                <label for="rdr">详单</label>
+                                            </div>
+                                            <div class="radio-box" style="margin-left: 20px;">
+                                                <input type="radio" id="bill" name="type" value="bill">
+                                                <label for="bill">账单</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+										<label class="title" style="margin-top: 20px;">房间号</label>
+                                        <input class="form-control" name="room_id">
+										<label class="title" style="margin-top: 20px;">入住日期-退房日期</label>
+                                        <div class="time-box">
+                                            <div class="col-9">
+                                                <input class="form-control" type="date" value="2023-12-07" name="begin_date">
+                                            </div>
+                                            <div class="line">-</div>
+                                            <div class="col-9">
+                                                <input class="form-control" type="date" value="2023-12-10" name="end_date">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="btns">
+                                        <button type="submit" class="btn btn-primary">确认提交</button>
+                                        <button type="button" class="btn btn-secondary" style="margin-left: 20px;">取消</button>
+                                    </div>
+								</form>
+                                </div>
+
+
+                            </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

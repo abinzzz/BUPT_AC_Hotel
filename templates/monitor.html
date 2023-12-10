@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="all,follow" />
+
+    <title>Monitor</title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Core stylesheets -->
+    <!-- <link rel="stylesheet" href="/static/css/form.css"> -->
+    <link rel="stylesheet" href="/static/css/custom.css" />
+    <!-- <link rel="stylesheet" href="/static/css/my-client.css"> -->
+    <link rel="stylesheet" href="/static/css/monitor.css" />
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        //自动刷新页面,10秒
+        setTimeout(function () {
+          location.reload();
+        }, 5000);
+      });
+    </script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="font-weight: bold"
+          >空调管理系统</a
+        >
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="http://10.129.197.107:8000/init/" style="font-weight: 600"
+                >设置空调参数</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://10.129.197.107:8000/monitor/" style="box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);"
+                >查看空调使用情况</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-content d-flex align-items-stretch">
+      <!--***** SIDE NAVBAR *****-->
+
+      <div class="content-inner form-cont" style="width: 100%">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card form" id="form1">
+              <div class="card-header">
+                <h5>监视界面</h5>
+              </div>
+              <br />
+
+              <div class="box">
+
+
+
+                <div class="card" style="width: 400px">
+                  <div class="card-header">房间：{{room_id.1}}</div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">状态：{{ state.1 }}</li>
+                    <li class="list-group-item">风速：{{fan_speed.1}}</li>
+                    <li class="list-group-item">室内温度：{{current_temp.1}}℃</li>
+                    <li class="list-group-item">设定温度：{{target_temp.1}}℃</li>
+                    <li class="list-group-item">费用：{{ fee.1 }}</li>
+                    <li class="list-group-item">费率：{{fee_rate.1}}</li>
+                  </ul>
+                </div>
+
+                <div class="card" style="width:400px">
+                  <div class="card-header">房间：{{room_id.2}}</div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">状态：{{ state.2 }}</li>
+                    <li class="list-group-item">风速：{{fan_speed.2}}</li>
+                    <li class="list-group-item">室内温度：{{current_temp.2}}℃</li>
+                    <li class="list-group-item">设定温度：{{target_temp.2}}℃</li>
+                    <li class="list-group-item">费用：{{ fee.2 }}</li>
+                    <li class="list-group-item">费率：{{fee_rate.2}}</li>
+                  </ul>
+                </div>
+
+                <div class="card" style="width: 400px">
+                  <div class="card-header">房间：{{room_id.3}}</div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">状态：{{ state.3 }}</li>
+                    <li class="list-group-item">风速：{{fan_speed.3}}</li>
+                    <li class="list-group-item">室内温度：{{current_temp.3}}℃</li>
+                    <li class="list-group-item">设定温度：{{target_temp.3}}℃</li>
+                    <li class="list-group-item">费用：{{ fee.3 }}</li>
+                    <li class="list-group-item">费率：{{fee_rate.3}}</li>
+                  </ul>
+                </div>
+
+                <div class="card" style="width: 400px">
+                  <div class="card-header">房间：{{room_id.4}}</div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">状态：{{ state.4 }}</li>
+                    <li class="list-group-item">风速：{{fan_speed.4}}</li>
+                    <li class="list-group-item">室内温度：{{current_temp.4}}℃</li>
+                    <li class="list-group-item">设定温度：{{target_temp.4}}℃</li>
+                    <li class="list-group-item">费用：{{ fee.4 }}</li>
+                    <li class="list-group-item">费率：{{fee_rate.4}}</li>
+                  </ul>
+                </div>
+
+
+                <div class="card" style="width: 400px">
+                  <div class="card-header">房间：{{room_id.5}}</div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">状态：{{ state.5 }}</li>
+                    <li class="list-group-item">风速：{{fan_speed.5}}</li>
+                    <li class="list-group-item">室内温度：{{current_temp.5}}℃</li>
+                    <li class="list-group-item">设定温度：{{target_temp.5}}℃</li>
+                    <li class="list-group-item">费用：{{ fee.5 }}</li>
+                    <li class="list-group-item">费率：{{fee_rate.5}}</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- <table class="table">
+                <tr>
+                  <td class="screen">
+                    <table style="width: 100%">
+                      <tr>
+                        <td>
+                          <h5 class="align-center">
+                            <span class="strong-title">房间：</span
+                            >{{room_id.1}}
+                          </h5>
+                        </td>
+                      </tr>
+                      <tr></tr>
+                      <tr>
+                        <td>
+                          <p id="r1">
+                            <span class="s-title">状态：</span>{{ state.1 }}
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">风速：</span>{{fan_speed.1}}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">室内温度：</span
+                            >{{current_temp.1}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p><span class="s-title">费用：</span>{{ fee.1 }}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">设定温度：</span
+                            >{{target_temp.1}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">费率：</span>{{fee_rate.1}}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="screen">
+                    <table style="width: 100%">
+                      <tr>
+                        <td>
+                          <h5 class="align-center">
+                            <span class="strong-title">房间：</span
+                            >{{room_id.2}}
+                          </h5>
+                        </td>
+                      </tr>
+                      <tr></tr>
+                      <tr>
+                        <td>
+                          <p id="r1">
+                            <span class="s-title">状态：</span>{{ state.2}}
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">风速：</span>{{fan_speed.2}}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">室内温度：</span
+                            >{{current_temp.2}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p><span class="s-title">费用：</span>{{ fee.2 }}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">设定温度：</span
+                            >{{target_temp.2}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">费率：</span>{{fee_rate.2}}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+
+                  <td class="screen">
+                    <table style="width: 100%">
+                      <tr>
+                        <td>
+                          <h5 class="align-center">
+                            <span class="strong-title">房间：</span
+                            >{{room_id.3}}
+                          </h5>
+                        </td>
+                      </tr>
+                      <tr></tr>
+                      <tr>
+                        <td>
+                          <p id="r1">
+                            <span class="s-title">状态：</span>{{ state.3}}
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">风速：</span>{{fan_speed.3}}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">室内温度：</span
+                            >{{current_temp.3}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p><span class="s-title">费用：</span>{{ fee.3 }}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">设定温度：</span
+                            >{{target_temp.3}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">费率：</span>{{fee_rate.3}}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="screen">
+                    <table style="width: 100%">
+                      <tr>
+                        <td>
+                          <h5 class="align-center">
+                            <span class="strong-title">房间：</span
+                            >{{room_id.4}}
+                          </h5>
+                        </td>
+                      </tr>
+                      <tr></tr>
+                      <tr>
+                        <td>
+                          <p id="r1">
+                            <span class="s-title">状态：</span>{{ state.4 }}
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">风速：</span>{{fan_speed.4}}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">室内温度：</span
+                            >{{current_temp.4}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p><span class="s-title">费用：</span>{{ fee.4 }}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">设定温度：</span
+                            >{{target_temp.4}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">费率：</span>{{fee_rate.4}}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td class="screen">
+                    <table style="width: 100%">
+                      <tr>
+                        <td>
+                          <h5 class="align-center">
+                            <span class="strong-title">房间：</span
+                            >{{room_id.5}}
+                          </h5>
+                        </td>
+                      </tr>
+                      <tr></tr>
+                      <tr>
+                        <td>
+                          <p id="r1">
+                            <span class="s-title">状态：</span>{{ state.5 }}
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">风速：</span>{{fan_speed.5}}
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">室内温度：</span
+                            >{{current_temp.5}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p><span class="s-title">费用：</span>{{ fee.5 }}</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p>
+                            <span class="s-title">设定温度：</span
+                            >{{target_temp.5}}℃
+                          </p>
+                        </td>
+                        <td>
+                          <p>
+                            <span class="s-title">费率：</span>{{fee_rate.5}}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

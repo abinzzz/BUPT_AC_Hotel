@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+
+    <link rel="stylesheet" href="/static/css/guanli_login_style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>员 工 系 统 登 录</h1>
+        <div class="centered-form">
+            <form id="guanli_loginForm" method="post" action="/guanli_login/">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label>您是:</label>
+                    <input type="radio" name="role" value="reception"> 前台
+                    <input type="radio" name="role" value="manager"> 经理
+                    <input type="radio" name="role" value="monitor"> 空调管理员
+                </div>
+                <div class="input-group">
+                    <input type="text" name="user" placeholder="用户名">
+                </div>
+                <div class="input-group">
+                    <input type="password" name="pwd" placeholder="密码">
+                </div>
+
+                <button type="submit">登录</button>
+                <span class="error">{{ error_msg }}</span>
+            </form>
+        </div>
+    </div>
+    <script src="/static/js/login_style.js"></script>
+</body>
+</html>
